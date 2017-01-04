@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "357091429498",
+    "project_id": "firebase-logoali"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357091429498:android:d10d2e6aa5466a48",
+        "android_client_info": {
+          "package_name": "com.example.patinho.logoali"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357091429498-2nb86tutj0eqpjm0rqm55g1fut8cl1lr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.patinho.logoali",
+            "certificate_hash": "5D1F3DCE4B976C8ED22DCEA274CF560A40D00C16"
+          }
+        },
+        {
+          "client_id": "357091429498-j1kekti1actfbb5kjgoavuph8icm22pp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx-FLtjwX4cXJdVf3A3Svsq-njiQqcXP4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

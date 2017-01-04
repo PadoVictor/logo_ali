@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Logo Ali</string>
+    <string name="search_activity_label">Buscar</string>
+
+    <!--Main Activity-->
+    <string name="titulo_main_activity">Entre com a cidade:</string>
+    <string name="texto_para_edit_text_main_activity">Cidade</string>
+    <string name="botao_main_activity">Buscar</string>
+
+    <!--Login Activity-->
+    <string name="email_login_activity">Email:</string>
+    <string name="texto_para_digitar_email_login_activity">Digite seu Email</string>
+    <string name="senha_login_activity">Senha:</string>
+    <string name="texto_para_digitar_senha_login_activity">Digite sua senha</string>
+    <string name="botao_entrar_login_activity">Entrar</string>
+    <string name="esqueceu_senha_login_activity">Esqueceu a senha?</string>
+    <string name="criar_nova_conta_login_activity">Criar nova conta</string>
+
+</resources>
