@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Estabelecimento> arrayListEstabelecimento;
-    BancoDeDadosTeste bdEstabalecimentos;
     EditText editTextNomeDaCidade;
 
     @Override
@@ -28,19 +27,19 @@ public class MainActivity extends AppCompatActivity {
         mButtonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrayListEstabelecimento = new ArrayList<Estabelecimento>();
+                arrayListEstabelecimento = new ArrayList<>();
                 editTextNomeDaCidade = (EditText) findViewById(R.id.edit_text_cidade_search_activity);
-                for (int i = 0; i < bdEstabalecimentos.getEstabelecimento().length; i++) {
-                    if (editTextNomeDaCidade.getText().toString() == bdEstabalecimentos.getEstabelecimento()[i].getmCidadeDoEstabelecimento()) {
-                        arrayListEstabelecimento.add(new Estabelecimento(bdEstabalecimentos.getEstabelecimento()[i].getmNomeDoEstabelecimento()
-                                , bdEstabalecimentos.getEstabelecimento()[i].getmCidadeDoEstabelecimento(),
-                                bdEstabalecimentos.getEstabelecimento()[i].getmBairroDoEstabelecimento()));
+                for (Estabelecimento e : BancoDeDadosTeste.getEstabelecimento()) {
+                    if (e.getmCidadeDoEstabelecimento().equalsIgnoreCase(editTextNomeDaCidade.getText().toString())) {
+                        arrayListEstabelecimento.add(new Estabelecimento(e.getmNomeDoEstabelecimento()
+                                , e.getmCidadeDoEstabelecimento(),
+                                e.getmBairroDoEstabelecimento()));
                     }
                 }
                 EstabelecimentoAdapter estAdapter = new EstabelecimentoAdapter(MainActivity.this, arrayListEstabelecimento);
                 ListView listView = (ListView) findViewById(R.id.list_view_busca);
-                listView.setAdapter(estAdapter);
                 listView.setVisibility(View.VISIBLE);
+                listView.setAdapter(estAdapter);
             }
         });
     }
