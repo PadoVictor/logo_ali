@@ -23,17 +23,11 @@ public class Estabelecimento {
         mTelefoneDoEstabelecimento = vTelefoneDoEstabelecimento;
     }
 
-    public Estabelecimento(String vNomeDoEstabelecimento, String vCidadeDoEstabelecimento, String vBairroDoEstabelecimento){
-        mNomeDoEstabelecimento = vNomeDoEstabelecimento;
-        mBairroDoEstabelecimento = vBairroDoEstabelecimento;
-        mCidadeDoEstabelecimento = vCidadeDoEstabelecimento;
-    }
-
     public String getmNomeDoEstabelecimento() {
         return mNomeDoEstabelecimento;
     }
 
-    public String getmEnderecoDoEstabelecimento() {
+    public String getmRuaDoEstabelecimento() {
         return mRuaDoEstabelecimento;
     }
 

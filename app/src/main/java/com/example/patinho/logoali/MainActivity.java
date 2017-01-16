@@ -32,8 +32,12 @@ public class MainActivity extends AppCompatActivity {
                 for (Estabelecimento e : BancoDeDadosTeste.getEstabelecimento()) {
                     if (e.getmCidadeDoEstabelecimento().equalsIgnoreCase(editTextNomeDaCidade.getText().toString())) {
                         arrayListEstabelecimento.add(new Estabelecimento(e.getmNomeDoEstabelecimento()
-                                , e.getmCidadeDoEstabelecimento(),
-                                e.getmBairroDoEstabelecimento()));
+                                , e.getmRuaDoEstabelecimento()
+                                , e.getmNumeroDoEstabelecimento()
+                                , e.getmBairroDoEstabelecimento()
+                                , e.getmCidadeDoEstabelecimento()
+                                , e.getmTelefoneDoEstabelecimento()
+                                , e.getmAdministrador()));
                     }
                 }
                 EstabelecimentoAdapter estAdapter = new EstabelecimentoAdapter(MainActivity.this, arrayListEstabelecimento);

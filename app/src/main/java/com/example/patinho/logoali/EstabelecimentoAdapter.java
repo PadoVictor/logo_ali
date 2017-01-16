@@ -29,8 +29,14 @@ public class EstabelecimentoAdapter extends ArrayAdapter<Estabelecimento> {
         TextView mNomeDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Nome);
         mNomeDoEstabelecimento.setText(mEstabelecimentoAtual.getmNomeDoEstabelecimento());
 
-        TextView mEnderecoDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Endereco);
-        mEnderecoDoEstabelecimento.setText(mEstabelecimentoAtual.getmBairroDoEstabelecimento());
+        TextView mTelefoneDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Telefone);
+        mTelefoneDoEstabelecimento.setText(mEstabelecimentoAtual.getmTelefoneDoEstabelecimento());
+
+        TextView mBairroDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Bairro);
+        mBairroDoEstabelecimento.setText(mEstabelecimentoAtual.getmBairroDoEstabelecimento());
+
+        TextView mCidadeDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Cidade);
+        mCidadeDoEstabelecimento.setText(mEstabelecimentoAtual.getmCidadeDoEstabelecimento());
 
         return listItemView;
     }
