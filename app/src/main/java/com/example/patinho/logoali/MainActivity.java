@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Estabelecimento> arrayListEstabelecimento;
     EditText editTextNomeDaCidade;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 EstabelecimentoAdapter estAdapter = new EstabelecimentoAdapter(MainActivity.this, arrayListEstabelecimento);
-                ListView listView = (ListView) findViewById(R.id.list_view_busca);
+                final ListView listView = (ListView) findViewById(R.id.list_view_busca);
                 listView.setVisibility(View.VISIBLE);
                 listView.setAdapter(estAdapter);
+                /*
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapter, View view, int position, long l) {
+                        //String value = (String)adapter.getItemAtPosition(position);
+                    }
+                });
+                */
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,3 +79,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
