@@ -2,6 +2,7 @@ package com.example.patinho.logoali;
 
 public class Estabelecimento {
 
+    private int mId;
     private Administrador mAdministrador;
     private String mNomeDoEstabelecimento;
     private String mRuaDoEstabelecimento;
@@ -10,10 +11,11 @@ public class Estabelecimento {
     private String mCidadeDoEstabelecimento;
     private String mTelefoneDoEstabelecimento;
 
-    public Estabelecimento(String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, int vNumeroDoEstabelecimento
+    public Estabelecimento(int id, String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, int vNumeroDoEstabelecimento
             , String vBairroDoEstabelecimento, String vCidadeDoEstabelecimento, String vTelefoneDoEstabelecimento
             , Administrador vAdministrador){
 
+        mId = id;
         mAdministrador = vAdministrador;
         mNomeDoEstabelecimento = vNomeDoEstabelecimento;
         mRuaDoEstabelecimento = vRuaDoEstabelecimento;
@@ -21,6 +23,10 @@ public class Estabelecimento {
         mBairroDoEstabelecimento = vBairroDoEstabelecimento;
         mCidadeDoEstabelecimento = vCidadeDoEstabelecimento;
         mTelefoneDoEstabelecimento = vTelefoneDoEstabelecimento;
+    }
+
+    public int getmId() {
+        return mId;
     }
 
     public String getmNomeDoEstabelecimento() {

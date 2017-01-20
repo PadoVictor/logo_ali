@@ -34,28 +34,23 @@ public class MainActivity extends AppCompatActivity {
                 editTextNomeDaCidade = (EditText) findViewById(R.id.edit_text_cidade_search_activity);
                 for (Estabelecimento e : BancoDeDadosTeste.getEstabelecimento()) {
                     if (e.getmCidadeDoEstabelecimento().equalsIgnoreCase(editTextNomeDaCidade.getText().toString())) {
-                        arrayListEstabelecimento.add(new Estabelecimento(e.getmNomeDoEstabelecimento()
-                                , e.getmRuaDoEstabelecimento()
-                                , e.getmNumeroDoEstabelecimento()
-                                , e.getmBairroDoEstabelecimento()
-                                , e.getmCidadeDoEstabelecimento()
-                                , e.getmTelefoneDoEstabelecimento()
-                                , e.getmAdministrador()));
+                        arrayListEstabelecimento.add(e);
                     }
                 }
                 EstabelecimentoAdapter estAdapter = new EstabelecimentoAdapter(MainActivity.this, arrayListEstabelecimento);
                 final ListView listView = (ListView) findViewById(R.id.list_view_busca);
                 listView.setVisibility(View.VISIBLE);
                 listView.setAdapter(estAdapter);
-                /*
 
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapter, View view, int position, long l) {
-                        //String value = (String)adapter.getItemAtPosition(position);
+                        Intent intent = new Intent(MainActivity.this, ActivityDetalhe.class);
+                        int idEstabelecimento = ((Estabelecimento)adapter.getItemAtPosition(position)).getmId();
+                        intent.putExtra(ActivityDetalhe.ID_ESTABELECIMENTO, idEstabelecimento);
+                        startActivity(intent);
                     }
                 });
-                */
             }
         });
     }

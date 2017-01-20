@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.patinho.logoali.activity_detalhe">
+    tools:context="com.example.patinho.logoali.ActivityDetalhe">
 
     <ImageView
         android:id="@+id/imagem_estabelecimento_detalhe"
