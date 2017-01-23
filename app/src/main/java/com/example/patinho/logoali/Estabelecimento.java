@@ -1,5 +1,7 @@
 package com.example.patinho.logoali;
 
+import android.widget.RatingBar;
+
 public class Estabelecimento {
 
     private int mId;
@@ -10,6 +12,7 @@ public class Estabelecimento {
     private String mBairroDoEstabelecimento;
     private String mCidadeDoEstabelecimento;
     private String mTelefoneDoEstabelecimento;
+    private RatingBar mNotaEstabelecimento;
 
     public Estabelecimento(int id, String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, int vNumeroDoEstabelecimento
             , String vBairroDoEstabelecimento, String vCidadeDoEstabelecimento, String vTelefoneDoEstabelecimento
