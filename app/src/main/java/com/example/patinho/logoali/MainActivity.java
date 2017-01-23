@@ -16,9 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Estabelecimento> arrayListEstabelecimento;
     EditText editTextNomeDaCidade;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +28,8 @@ public class MainActivity extends AppCompatActivity {
         mButtonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrayListEstabelecimento = new ArrayList<>();
                 editTextNomeDaCidade = (EditText) findViewById(R.id.edit_text_cidade_search_activity);
-                for (Estabelecimento e : BancoDeDadosTeste.getEstabelecimento()) {
-                    if (e.getmCidadeDoEstabelecimento().equalsIgnoreCase(editTextNomeDaCidade.getText().toString())) {
-                        arrayListEstabelecimento.add(e);
-                    }
-                }
+                ArrayList<Estabelecimento> arrayListEstabelecimento = BancoDeDadosTeste.selectEstabelecimentoByCidade(editTextNomeDaCidade.getText().toString());
                 EstabelecimentoAdapter estAdapter = new EstabelecimentoAdapter(MainActivity.this, arrayListEstabelecimento);
                 final ListView listView = (ListView) findViewById(R.id.list_view_busca);
                 listView.setVisibility(View.VISIBLE);
@@ -46,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapter, View view, int position, long l) {
                         Intent intent = new Intent(MainActivity.this, ActivityDetalhe.class);
-                        int idEstabelecimento = ((Estabelecimento)adapter.getItemAtPosition(position)).getmId();
+                        int idEstabelecimento = ((Estabelecimento) adapter.getItemAtPosition(position)).getmId();
                         intent.putExtra(ActivityDetalhe.ID_ESTABELECIMENTO, idEstabelecimento);
                         startActivity(intent);
                     }

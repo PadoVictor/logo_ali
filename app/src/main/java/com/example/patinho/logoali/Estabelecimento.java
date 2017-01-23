@@ -8,13 +8,13 @@ public class Estabelecimento {
     private Administrador mAdministrador;
     private String mNomeDoEstabelecimento;
     private String mRuaDoEstabelecimento;
-    private int mNumeroDoEstabelecimento;
+    private String mNumeroDoEstabelecimento;
     private String mBairroDoEstabelecimento;
     private String mCidadeDoEstabelecimento;
     private String mTelefoneDoEstabelecimento;
-    private RatingBar mNotaEstabelecimento;
+    private float mNotaEstabelecimento = 4.5f;
 
-    public Estabelecimento(int id, String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, int vNumeroDoEstabelecimento
+    public Estabelecimento(int id, String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, String vNumeroDoEstabelecimento
             , String vBairroDoEstabelecimento, String vCidadeDoEstabelecimento, String vTelefoneDoEstabelecimento
             , Administrador vAdministrador){
 
@@ -48,7 +48,7 @@ public class Estabelecimento {
         return mAdministrador;
     }
 
-    public int getmNumeroDoEstabelecimento() {
+    public String getmNumeroDoEstabelecimento() {
         return mNumeroDoEstabelecimento;
     }
 
@@ -58,5 +58,9 @@ public class Estabelecimento {
 
     public String getmCidadeDoEstabelecimento() {
         return mCidadeDoEstabelecimento;
+    }
+
+    public float getmNotaEstabelecimento() {
+        return mNotaEstabelecimento;
     }
 }

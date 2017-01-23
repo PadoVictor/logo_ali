@@ -25,7 +25,6 @@ public class ActivityDetalhe extends AppCompatActivity {
         final Intent intent = getIntent();
         estabelecimento = BancoDeDadosTeste.selectEstabelecimento(intent.getIntExtra(ID_ESTABELECIMENTO, -1));
 
-        //TODO: Popular views
         nome = (TextView) findViewById(R.id.nome_estabelecimento_detalhe);
         nome.setText(estabelecimento.getmNomeDoEstabelecimento());
 
@@ -36,7 +35,7 @@ public class ActivityDetalhe extends AppCompatActivity {
         rua.setText(estabelecimento.getmRuaDoEstabelecimento());
 
         numero = (TextView) findViewById(R.id.numero_estabelecimento_detalhe);
-        numero.setText(estabelecimento.getmNumeroDoEstabelecimento());
+        numero.setText(String.valueOf(estabelecimento.getmNumeroDoEstabelecimento()));
 
         bairro = (TextView) findViewById(R.id.bairro_estabelecimento_detalhe);
         bairro.setText(estabelecimento.getmBairroDoEstabelecimento());
@@ -45,7 +44,7 @@ public class ActivityDetalhe extends AppCompatActivity {
         cidade.setText(estabelecimento.getmCidadeDoEstabelecimento());
 
         nota = (RatingBar) findViewById(R.id.rating_bar_detalhe);
-        nota.setNumStars(4);
+        nota.setRating(estabelecimento.getmNotaEstabelecimento());
     }
 
 
