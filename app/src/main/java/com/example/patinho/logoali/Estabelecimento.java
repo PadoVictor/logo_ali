@@ -5,7 +5,7 @@ import android.widget.RatingBar;
 public class Estabelecimento {
 
     private int mId;
-    private Administrador mAdministrador;
+    private int mIdAdministrador;
     private String mNomeDoEstabelecimento;
     private String mRuaDoEstabelecimento;
     private String mNumeroDoEstabelecimento;
@@ -16,10 +16,10 @@ public class Estabelecimento {
 
     public Estabelecimento(int id, String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, String vNumeroDoEstabelecimento
             , String vBairroDoEstabelecimento, String vCidadeDoEstabelecimento, String vTelefoneDoEstabelecimento
-            , Administrador vAdministrador){
+            , int vIdAdministrador){
 
         mId = id;
-        mAdministrador = vAdministrador;
+        mIdAdministrador = vIdAdministrador;
         mNomeDoEstabelecimento = vNomeDoEstabelecimento;
         mRuaDoEstabelecimento = vRuaDoEstabelecimento;
         mNumeroDoEstabelecimento = vNumeroDoEstabelecimento;
@@ -44,8 +44,8 @@ public class Estabelecimento {
         return mTelefoneDoEstabelecimento;
     }
 
-    public Administrador getmAdministrador() {
-        return mAdministrador;
+    public int getmIdAdministrador() {
+        return mIdAdministrador;
     }
 
     public String getmNumeroDoEstabelecimento() {
