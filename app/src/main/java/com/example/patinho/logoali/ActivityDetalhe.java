@@ -12,6 +12,7 @@ public class ActivityDetalhe extends AppCompatActivity {
     public static String ID_ESTABELECIMENTO = "com.example.patinho.logoali.ActivityDetalhe.ID_ESTABELECIMENTO";
 
     Estabelecimento estabelecimento;
+    //Testando
 
     TextView nome, telefone, rua, numero, bairro, cidade;
 
