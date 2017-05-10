@@ -3,6 +3,7 @@ package com.example.patinho.logoali;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -16,6 +17,8 @@ public class ActivityDetalhe extends AppCompatActivity {
 
     TextView nome, telefone, rua, numero, bairro, cidade;
 
+    ImageView imagem;
+
     RatingBar nota;
 
     @Override
@@ -25,6 +28,9 @@ public class ActivityDetalhe extends AppCompatActivity {
 
         final Intent intent = getIntent();
         estabelecimento = BancoDeDadosTeste.selectEstabelecimento(intent.getIntExtra(ID_ESTABELECIMENTO, -1));
+
+        imagem = (ImageView) findViewById(R.id.imagem_estabelecimento_detalhe);
+        imagem.setImageResource(estabelecimento.getmImagemEstabelecimento());
 
         nome = (TextView) findViewById(R.id.nome_estabelecimento_detalhe);
         nome.setText(estabelecimento.getmNomeDoEstabelecimento());

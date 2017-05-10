@@ -13,10 +13,11 @@ public class Estabelecimento {
     private String mCidadeDoEstabelecimento;
     private String mTelefoneDoEstabelecimento;
     private float mNotaEstabelecimento = 4.5f;
+    private int mImagemEstabelecimento;
 
     public Estabelecimento(int id, String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, String vNumeroDoEstabelecimento
             , String vBairroDoEstabelecimento, String vCidadeDoEstabelecimento, String vTelefoneDoEstabelecimento
-            , int vIdAdministrador){
+            , int vIdAdministrador, int vImagemEstabelecimento){
 
         mId = id;
         mIdAdministrador = vIdAdministrador;
@@ -26,6 +27,7 @@ public class Estabelecimento {
         mBairroDoEstabelecimento = vBairroDoEstabelecimento;
         mCidadeDoEstabelecimento = vCidadeDoEstabelecimento;
         mTelefoneDoEstabelecimento = vTelefoneDoEstabelecimento;
+        mImagemEstabelecimento = vImagemEstabelecimento;
     }
 
     public int getmId() {
@@ -63,4 +65,9 @@ public class Estabelecimento {
     public float getmNotaEstabelecimento() {
         return mNotaEstabelecimento;
     }
+
+    public int getmImagemEstabelecimento() {
+        return mImagemEstabelecimento;
+    }
+
 }
