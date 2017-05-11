@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,11 +27,14 @@ public class EstabelecimentoAdapter extends ArrayAdapter<Estabelecimento> {
 
         Estabelecimento mEstabelecimentoAtual = getItem(position);
 
+        ImageView mImagemDoEstabelecimento = (ImageView) listItemView.findViewById(R.id.imagem_estabelecimento_list_item);
+        mImagemDoEstabelecimento.setImageResource(mEstabelecimentoAtual.getmImagemEstabelecimentoThumb());
+
         TextView mNomeDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Nome);
         mNomeDoEstabelecimento.setText(mEstabelecimentoAtual.getmNomeDoEstabelecimento());
 
-        TextView mTelefoneDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Telefone);
-        mTelefoneDoEstabelecimento.setText(mEstabelecimentoAtual.getmTelefoneDoEstabelecimento());
+        //TextView mTelefoneDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Telefone);
+        //mTelefoneDoEstabelecimento.setText(mEstabelecimentoAtual.getmTelefoneDoEstabelecimento());
 
         TextView mBairroDoEstabelecimento = (TextView) listItemView.findViewById(R.id.Bairro);
         mBairroDoEstabelecimento.setText(mEstabelecimentoAtual.getmBairroDoEstabelecimento());

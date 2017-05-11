@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String password = etSenha.getText().toString();
                 if (BancoDeDadosTeste.authenticateUser(email, password) == 1) {
-                    Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
             }
