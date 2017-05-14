@@ -15,7 +15,7 @@ public class ActivityDetalhe extends AppCompatActivity {
     Estabelecimento estabelecimento;
     //Testando
 
-    TextView nome, telefone, rua, numero, bairro, cidade;
+    TextView nome, telefone, rua, numero, bairro, cidade, servicos, horario;
 
     ImageView imagem;
 
@@ -49,6 +49,12 @@ public class ActivityDetalhe extends AppCompatActivity {
 
         cidade = (TextView) findViewById(R.id.cidade_estabelecimento_detalhe);
         cidade.setText(estabelecimento.getmCidadeDoEstabelecimento());
+
+        servicos = (TextView) findViewById(R.id.serviços_estabelecimento_detalhe);
+        servicos.setText(estabelecimento.getmServicos());
+
+        horario = (TextView) findViewById(R.id.horario_estabelecimento_detalhe);
+        horario.setText(estabelecimento.getmHorarioAtendimento());
 
         nota = (RatingBar) findViewById(R.id.rating_bar_detalhe);
         nota.setRating(estabelecimento.getmNotaEstabelecimento());

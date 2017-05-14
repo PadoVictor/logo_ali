@@ -12,13 +12,15 @@ public class Estabelecimento {
     private String mBairroDoEstabelecimento;
     private String mCidadeDoEstabelecimento;
     private String mTelefoneDoEstabelecimento;
+    private String mServicos;
+    private String mHorarioAtendimento;
     private float mNotaEstabelecimento;
     private int mImagemEstabelecimento;
     private int mImagemEstabelecimentoThumb;
 
     public Estabelecimento(int id, String vNomeDoEstabelecimento, String vRuaDoEstabelecimento, String vNumeroDoEstabelecimento
-            , String vBairroDoEstabelecimento, String vCidadeDoEstabelecimento, String vTelefoneDoEstabelecimento
-            , int vIdAdministrador, float vNotaEstabelecimento, int vImagemEstabelecimento, int vImagemEstabelecimentoThumb){
+            , String vBairroDoEstabelecimento, String vCidadeDoEstabelecimento, String vTelefoneDoEstabelecimento, String vServicos
+            , String vHorarioAtendimento, int vIdAdministrador, float vNotaEstabelecimento, int vImagemEstabelecimento, int vImagemEstabelecimentoThumb){
 
         mId = id;
         mIdAdministrador = vIdAdministrador;
@@ -31,6 +33,8 @@ public class Estabelecimento {
         mImagemEstabelecimento = vImagemEstabelecimento;
         mNotaEstabelecimento = vNotaEstabelecimento;
         mImagemEstabelecimentoThumb = vImagemEstabelecimentoThumb;
+        mServicos = vServicos;
+        mHorarioAtendimento = vHorarioAtendimento;
     }
 
     public int getmId() {
@@ -75,5 +79,13 @@ public class Estabelecimento {
 
     public int getmImagemEstabelecimentoThumb() {
         return mImagemEstabelecimentoThumb;
+    }
+
+    public String getmServicos() {
+        return mServicos;
+    }
+
+    public String getmHorarioAtendimento() {
+        return mHorarioAtendimento;
     }
 }
