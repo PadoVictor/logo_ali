@@ -70,6 +70,7 @@ public class ActivityDetalhe extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_details, menu);
         if (estabelecimento.getmIdAdministrador() == LoginHandler.getUsuario().getmIdUsuario()) {
             MenuItem edit_item = menu.add(0, MenuItem_EditId, 0, R.string.edit);
             edit_item.setIcon(R.drawable.ic_mode_edit_white_24dp);
