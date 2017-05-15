@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import static com.example.patinho.logoali.BancoDeDadosTeste.AuthenticateUserReturn.USER_ID;
+import static com.example.patinho.logoali.Usuario.Role.ADMIN;
+import static com.example.patinho.logoali.Usuario.Role.USER;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,11 +38,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = etEmail.getText().toString();
                 String password = etSenha.getText().toString();
-                BancoDeDadosTeste.AuthenticateUserReturn userReturn = BancoDeDadosTeste.authenticateUser(email, password);
+                int loginReturn = LoginHandler.login(email, password);
+
                 Intent intent = null;
 
-                if (userReturn.getErr() == 1) {
-                    switch (userReturn.getRole()) {
+                if (loginReturn == 1) {
+                    switch (LoginHandler.getUsuario().getmRole()) {
                         case USER:
                             //Se Role é user, ir à tela de pesquisa
                             intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -50,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
                             intent = new Intent(LoginActivity.this, ActivityEstabelecimentos.class);
                             break;
                     }
-                    intent.putExtra(USER_ID, userReturn.getUserID());
                     startActivity(intent);
                 }
             }

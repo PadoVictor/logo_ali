@@ -16,5 +16,6 @@
     <string name="esqueceu_senha_login_activity">Esqueceu a senha?</string>
     <string name="criar_nova_conta_login_activity">Criar nova conta</string>
     <string name="titulo_activity_estabelecimento">Meus Estabelecimentos</string>
+    <string name="edit">Editar</string>
 
 </resources>

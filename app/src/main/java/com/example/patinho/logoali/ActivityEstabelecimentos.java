@@ -22,7 +22,7 @@ public class ActivityEstabelecimentos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estabelecimentos);
 
-        adminID = getIntent().getIntExtra(USER_ID, -1);
+        adminID = LoginHandler.getUsuario().getmIdUsuario();
 
         ArrayList<Estabelecimento> arrayListEstabelecimento = BancoDeDadosTeste.selectEstabelecimentoByAdmin(adminID);
         EstabelecimentoAdapter estAdapter = new EstabelecimentoAdapter(ActivityEstabelecimentos.this, arrayListEstabelecimento);

@@ -100,12 +100,12 @@ class BancoDeDadosTeste {
         Usuario user = selectAdministradorByEmail(email);
 
         if (user == null)
-            return new AuthenticateUserReturn(-2, -1, null);
+            return new AuthenticateUserReturn(-2, null);
 
         if (user.getmSenha().equals(password))
-            return new AuthenticateUserReturn(1, user.getmIdUsuario(), user.getmRole());
+            return new AuthenticateUserReturn(1, user);
         else
-            return new AuthenticateUserReturn(1, -1, null);
+            return new AuthenticateUserReturn(-1, null);
     }
 
     public static class AuthenticateUserReturn {
@@ -114,25 +114,19 @@ class BancoDeDadosTeste {
          * 1 = sucesso, -1 = senha incorreta, -2 = usuário inexistente
          */
         private int err;
-        private int userID;
-        private Usuario.Role role;
+        private Usuario usuario;
 
-        public AuthenticateUserReturn(int err, int userID, Usuario.Role role) {
+        public AuthenticateUserReturn(int err, Usuario usuario) {
             this.err = err;
-            this.userID = userID;
-            this.role = role;
+            this.usuario = usuario;
         }
 
         public int getErr() {
             return err;
         }
 
-        public int getUserID() {
-            return userID;
-        }
-
-        public Usuario.Role getRole() {
-            return role;
+        public Usuario getUsuario() {
+            return usuario;
         }
     }
 }

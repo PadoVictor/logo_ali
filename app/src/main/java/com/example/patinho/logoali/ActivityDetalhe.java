@@ -3,6 +3,9 @@ package com.example.patinho.logoali;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
@@ -10,9 +13,13 @@ import android.widget.TextView;
 
 public class ActivityDetalhe extends AppCompatActivity {
 
-    public static String ID_ESTABELECIMENTO = "com.example.patinho.logoali.ActivityDetalhe.ID_ESTABELECIMENTO";
+    public final static String ID_ESTABELECIMENTO = "com.example.patinho.logoali.ActivityDetalhe.ID_ESTABELECIMENTO";
+    public final static String ID_USUARIO = "com.example.patinho.logoali.ActivityDetalhe.ID_USUARIO";
+
+    private final int MenuItem_EditId = 1;
 
     Estabelecimento estabelecimento;
+    Usuario usuario;
     //Testando
 
     TextView nome, telefone, rua, numero, bairro, cidade, servicos, horario;
@@ -28,6 +35,7 @@ public class ActivityDetalhe extends AppCompatActivity {
 
         final Intent intent = getIntent();
         estabelecimento = BancoDeDadosTeste.selectEstabelecimento(intent.getIntExtra(ID_ESTABELECIMENTO, -1));
+        usuario = BancoDeDadosTeste.selectAdministrador(intent.getIntExtra(ID_USUARIO, -1));
 
         imagem = (ImageView) findViewById(R.id.imagem_estabelecimento_detalhe);
         imagem.setImageResource(estabelecimento.getmImagemEstabelecimento());
@@ -60,5 +68,13 @@ public class ActivityDetalhe extends AppCompatActivity {
         nota.setRating(estabelecimento.getmNotaEstabelecimento());
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (estabelecimento.getmIdAdministrador() == LoginHandler.getUsuario().getmIdUsuario()) {
+            MenuItem edit_item = menu.add(0, MenuItem_EditId, 0, R.string.edit);
+            edit_item.setIcon(R.drawable.ic_mode_edit_white_24dp);
+            edit_item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+        return true;
+    }
 }
