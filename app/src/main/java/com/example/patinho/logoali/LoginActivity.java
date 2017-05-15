@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.patinho.logoali.BancoDeDadosTeste.AuthenticateUserReturn.USER_ID;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -34,8 +36,21 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = etEmail.getText().toString();
                 String password = etSenha.getText().toString();
-                if (BancoDeDadosTeste.authenticateUser(email, password) == 1) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                BancoDeDadosTeste.AuthenticateUserReturn userReturn = BancoDeDadosTeste.authenticateUser(email, password);
+                Intent intent = null;
+
+                if (userReturn.getErr() == 1) {
+                    switch (userReturn.getRole()) {
+                        case USER:
+                            //Se Role é user, ir à tela de pesquisa
+                            intent = new Intent(LoginActivity.this, MainActivity.class);
+                            break;
+                        case ADMIN:
+                            //Se Role é Admin, ir à tela de Meus Estabelecimentos
+                            intent = new Intent(LoginActivity.this, ActivityEstabelecimentos.class);
+                            break;
+                    }
+                    intent.putExtra(USER_ID, userReturn.getUserID());
                     startActivity(intent);
                 }
             }

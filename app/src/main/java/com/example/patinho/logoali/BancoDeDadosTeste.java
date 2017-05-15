@@ -35,7 +35,8 @@ class BancoDeDadosTeste {
             new Usuario(6, "Bianca", "Preto", "15199222306", "biamar@gmail.com", "6738894", Usuario.Role.USER),
             new Usuario(7, "Fernanda", "Rubião", "27789669500", "fea055@gmail.com", "458448748as", Usuario.Role.USER),
             new Usuario(8, "Dener", "Desmond", "16497585420", "dede@gmail.com", "acS269", Usuario.Role.ADMIN),
-            new Usuario(8, "Rodrigo", "Salles", "98908754577", "rsalles@gmail.com", "975791", Usuario.Role.ADMIN),
+            new Usuario(9, "Rodrigo", "Salles", "98908754577", "rsalles@gmail.com", "975791", Usuario.Role.ADMIN),
+            new Usuario(10, "Usuario", "Teste", "00000000000", "u", "t", Usuario.Role.USER),
     };
 
     public static ArrayList<Estabelecimento> selectEstabelecimentoByCidade(String cidade) {
@@ -46,6 +47,17 @@ class BancoDeDadosTeste {
         for (Estabelecimento e : estabelecimentos) {
             //Gambiarra para ignorar maiúsculas
             if (e.getmCidadeDoEstabelecimento().toUpperCase().contains(cidade.toUpperCase())) {
+                arrayListEstabelecimento.add(e);
+            }
+        }
+        return arrayListEstabelecimento;
+    }
+
+    public static ArrayList<Estabelecimento> selectEstabelecimentoByAdmin(int userID) {
+        ArrayList<Estabelecimento> arrayListEstabelecimento = new ArrayList<>();
+        for (Estabelecimento e : estabelecimentos) {
+            //Gambiarra para ignorar maiúsculas
+            if (e.getmIdAdministrador() == userID) {
                 arrayListEstabelecimento.add(e);
             }
         }
@@ -63,7 +75,7 @@ class BancoDeDadosTeste {
 
     public static Usuario selectAdministrador(int id) {
         for (Usuario a : usuarios) {
-            if (a.getmIdAdministrador() == id) {
+            if (a.getmIdUsuario() == id) {
                 return a;
             }
         }
@@ -82,17 +94,45 @@ class BancoDeDadosTeste {
     /**
      * @param email
      * @param password
-     * @return 1 = sucesso, -1 = senha incorreta, -2 = usuário incorreto
+     * @return Estrutura com o resultado da autenticacao
      */
-    public static int authenticateUser(String email, String password) {
+    public static AuthenticateUserReturn authenticateUser(String email, String password) {
         Usuario user = selectAdministradorByEmail(email);
 
         if (user == null)
-            return -2;
+            return new AuthenticateUserReturn(-2, -1, null);
 
         if (user.getmSenha().equals(password))
-            return 1;
+            return new AuthenticateUserReturn(1, user.getmIdUsuario(), user.getmRole());
         else
-            return -1;
+            return new AuthenticateUserReturn(1, -1, null);
+    }
+
+    public static class AuthenticateUserReturn {
+        static final String USER_ID = "com.example.patinho.logoali.BancoDeDadosTeste.AuthenticateUserReturn.USER_ID";
+        /**
+         * 1 = sucesso, -1 = senha incorreta, -2 = usuário inexistente
+         */
+        private int err;
+        private int userID;
+        private Usuario.Role role;
+
+        public AuthenticateUserReturn(int err, int userID, Usuario.Role role) {
+            this.err = err;
+            this.userID = userID;
+            this.role = role;
+        }
+
+        public int getErr() {
+            return err;
+        }
+
+        public int getUserID() {
+            return userID;
+        }
+
+        public Usuario.Role getRole() {
+            return role;
+        }
     }
 }

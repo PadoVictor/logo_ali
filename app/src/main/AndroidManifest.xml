@@ -27,7 +27,7 @@
             android:label="Login" />
         <activity android:name=".CadastroActivity" />
         <activity android:name=".ActivityDetalhe" />
-        <activity android:name=".activity_estabelecimentos"></activity>
+        <activity android:name=".ActivityEstabelecimentos"></activity>
     </application>
 
 </manifest>

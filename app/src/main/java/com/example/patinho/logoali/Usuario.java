@@ -1,15 +1,13 @@
 package com.example.patinho.logoali;
 
-import java.util.ArrayList;
-
 public class Usuario {
 
     enum Role {
         ADMIN,
-        USER;
+        USER
     }
 
-    private int mIdAdministrador;
+    private int mIdUsuario;
     private String mNome;
     private String mSobrenome;
     private String mCadastroDePessoa;
@@ -17,8 +15,8 @@ public class Usuario {
     private String mSenha;
     private final Role mRole;
 
-    public Usuario(int vIdAdministrador, String vNome, String vSobrenome, String vCadastroDePessoa, String vEmail, String vSenha, Role vRole) {
-        mIdAdministrador = vIdAdministrador;
+    public Usuario(int vIdUsuario, String vNome, String vSobrenome, String vCadastroDePessoa, String vEmail, String vSenha, Role vRole) {
+        mIdUsuario = vIdUsuario;
         mNome = vNome;
         mSobrenome = vSobrenome;
         mCadastroDePessoa = vCadastroDePessoa;
@@ -27,8 +25,8 @@ public class Usuario {
         mRole = vRole;
     }
 
-    public int getmIdAdministrador() {
-        return mIdAdministrador;
+    public int getmIdUsuario() {
+        return mIdUsuario;
     }
 
     public String getmNome() {
