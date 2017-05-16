@@ -15,7 +15,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,8 +25,13 @@
             android:name=".LoginActivity"
             android:label="Login" />
         <activity android:name=".CadastroActivity" />
-        <activity android:name=".ActivityDetalhe" />
+        <activity android:name=".ActivityDetalhe">
+            <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+        </activity>
         <activity android:name=".ActivityEstabelecimentos"></activity>
+
     </application>
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
 
 </manifest>

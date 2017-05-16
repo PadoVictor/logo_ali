@@ -1,6 +1,7 @@
 package com.example.patinho.logoali;
 
 import android.content.Intent;
+import android.provider.AlarmClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -66,6 +67,7 @@ public class ActivityDetalhe extends AppCompatActivity {
 
         nota = (RatingBar) findViewById(R.id.rating_bar_detalhe);
         nota.setRating(estabelecimento.getmNotaEstabelecimento());
+
     }
 
     @Override
@@ -75,6 +77,25 @@ public class ActivityDetalhe extends AppCompatActivity {
             MenuItem edit_item = menu.add(0, MenuItem_EditId, 0, R.string.edit);
             edit_item.setIcon(R.drawable.ic_mode_edit_white_24dp);
             edit_item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+        return true;
+    }
+
+    public void createAlarm(String message) {
+        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+                .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+                .putExtra(AlarmClock.EXTRA_HOUR, 0)
+                .putExtra(AlarmClock.EXTRA_MINUTES, 0);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.adicionar_alarme) {
+            createAlarm(nome.getText().toString());
         }
         return true;
     }
