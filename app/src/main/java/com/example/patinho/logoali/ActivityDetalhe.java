@@ -97,6 +97,10 @@ public class ActivityDetalhe extends AppCompatActivity {
         if (id == R.id.adicionar_alarme) {
             createAlarm(nome.getText().toString());
         }
+        if (id == MenuItem_EditId) {
+            Intent intent = new Intent(ActivityDetalhe.this, ActivityEditEstab.class);
+            startActivity(intent);;
+        }
         return true;
     }
 }

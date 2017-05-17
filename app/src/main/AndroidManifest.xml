@@ -29,6 +29,7 @@
             <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
         </activity>
         <activity android:name=".ActivityEstabelecimentos"></activity>
+        <activity android:name=".ActivityEditEstab"></activity>
 
     </application>
 
