@@ -1,5 +1,7 @@
 package com.example.patinho.logoali;
 
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.provider.AlarmClock;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class ActivityDetalhe extends AppCompatActivity {
 
@@ -23,6 +27,9 @@ public class ActivityDetalhe extends AppCompatActivity {
     TextView nome, telefone, rua, numero, bairro, cidade, servicos, horario;
 
     ImageView imagem;
+
+    static final int DIALOG_ID = 0;
+    int hour_x, minute_x;
 
     RatingBar nota;
 
@@ -80,8 +87,8 @@ public class ActivityDetalhe extends AppCompatActivity {
     public void createAlarm(String message) {
         Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
                 .putExtra(AlarmClock.EXTRA_MESSAGE, message)
-                .putExtra(AlarmClock.EXTRA_HOUR, 0)
-                .putExtra(AlarmClock.EXTRA_MINUTES, 0);
+                .putExtra(AlarmClock.EXTRA_HOUR, hour_x)
+                .putExtra(AlarmClock.EXTRA_MINUTES, minute_x);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
@@ -91,7 +98,8 @@ public class ActivityDetalhe extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.adicionar_alarme) {
-            createAlarm(nome.getText().toString());
+            Toast.makeText(ActivityDetalhe.this, "Defina um alarme para visitar estabelecimento", Toast.LENGTH_LONG).show();
+            showDialog(DIALOG_ID);
         }
         if (id == MenuItem_EditId) {
             Intent intent = new Intent(ActivityDetalhe.this, ActivityEditEstab.class);
@@ -99,4 +107,20 @@ public class ActivityDetalhe extends AppCompatActivity {
         }
         return true;
     }
+
+    @Override
+    protected Dialog onCreateDialog(int id){
+        if(id == DIALOG_ID)
+            return new TimePickerDialog(ActivityDetalhe.this, kTimePickerListener, hour_x, minute_x, true);
+        return null;
+    }
+
+    protected TimePickerDialog.OnTimeSetListener kTimePickerListener = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            hour_x = hourOfDay;
+            minute_x = minute;
+            createAlarm(nome.getText().toString());
+        }
+    };
 }
