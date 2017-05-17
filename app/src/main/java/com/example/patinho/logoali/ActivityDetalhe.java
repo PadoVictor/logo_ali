@@ -15,13 +15,10 @@ import android.widget.TextView;
 public class ActivityDetalhe extends AppCompatActivity {
 
     public final static String ID_ESTABELECIMENTO = "com.example.patinho.logoali.ActivityDetalhe.ID_ESTABELECIMENTO";
-    public final static String ID_USUARIO = "com.example.patinho.logoali.ActivityDetalhe.ID_USUARIO";
 
     private final int MenuItem_EditId = 1;
 
     Estabelecimento estabelecimento;
-    Usuario usuario;
-    //Testando
 
     TextView nome, telefone, rua, numero, bairro, cidade, servicos, horario;
 
@@ -36,7 +33,6 @@ public class ActivityDetalhe extends AppCompatActivity {
 
         final Intent intent = getIntent();
         estabelecimento = BancoDeDadosTeste.selectEstabelecimento(intent.getIntExtra(ID_ESTABELECIMENTO, -1));
-        usuario = BancoDeDadosTeste.selectAdministrador(intent.getIntExtra(ID_USUARIO, -1));
 
         imagem = (ImageView) findViewById(R.id.imagem_estabelecimento_detalhe);
         imagem.setImageResource(estabelecimento.getmImagemEstabelecimento());
