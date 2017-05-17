@@ -3,14 +3,15 @@ package com.example.patinho.logoali;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import java.util.ArrayList;
-
 import static com.example.patinho.logoali.BancoDeDadosTeste.AuthenticateUserReturn.USER_ID;
+import static com.example.patinho.logoali.Usuario.Role.ADMIN;
 
 public class ActivityEstabelecimentos extends AppCompatActivity {
 
@@ -39,5 +40,25 @@ public class ActivityEstabelecimentos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_meus_estabelecimentos, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id == R.id.pesquisar_estabelecimentos) {
+            if (ADMIN == LoginHandler.getUsuario().getmRole()) {
+                Intent intent = new Intent(ActivityEstabelecimentos.this, MainActivity.class);
+                startActivity(intent);
+            }
+        }
+        return true;
     }
 }

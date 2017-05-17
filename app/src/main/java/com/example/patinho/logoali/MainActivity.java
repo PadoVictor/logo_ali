@@ -10,13 +10,15 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static com.example.patinho.logoali.Usuario.Role.ADMIN;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText editTextNomeDaCidade;
+    private final int MenuItem_MeusEstabelecimentos = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +53,22 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        if (ADMIN == LoginHandler.getUsuario().getmRole()) {
+            MenuItem edit_item = menu.add(0, MenuItem_MeusEstabelecimentos, 0, "Meus Estabelecimentos");
+            edit_item.setIcon(R.drawable.ic_meus_estabelecimentos_24dp);
+            edit_item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
-
-        if (id == R.id.fazer_login) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        if (id == MenuItem_MeusEstabelecimentos) {
+            Intent intent = new Intent(MainActivity.this, ActivityEstabelecimentos.class);
             startActivity(intent);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }
 
