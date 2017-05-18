@@ -10,8 +10,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="200sp"/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayout3"
