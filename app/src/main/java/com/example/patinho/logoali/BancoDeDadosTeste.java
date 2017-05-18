@@ -129,4 +129,13 @@ class BancoDeDadosTeste {
             return usuario;
         }
     }
+
+    public static Estabelecimento updateEstabelecimento(Estabelecimento in) {
+        Estabelecimento estabelecimento = selectEstabelecimento(in.getmId());
+        if (estabelecimento != null && LoginHandler.getUsuario().getmIdUsuario() == estabelecimento.getmIdAdministrador()) {
+            estabelecimento = in;
+            return estabelecimento;
+        }
+        return null;
+    }
 }

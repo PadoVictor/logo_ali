@@ -39,38 +39,14 @@ public class ActivityDetalhe extends AppCompatActivity {
         setContentView(R.layout.activity_detalhe);
 
         final Intent intent = getIntent();
-        estabelecimento = BancoDeDadosTeste.selectEstabelecimento(intent.getIntExtra(ID_ESTABELECIMENTO, -1));
+        final int idEstab = intent.getIntExtra(ID_ESTABELECIMENTO, -1);
+        refresh(idEstab);
+    }
 
-        imagem = (ImageView) findViewById(R.id.imagem_estabelecimento_detalhe);
-        imagem.setImageResource(estabelecimento.getmImagemEstabelecimento());
-
-        nome = (TextView) findViewById(R.id.nome_estabelecimento_detalhe);
-        nome.setText(estabelecimento.getmNomeDoEstabelecimento());
-
-        telefone = (TextView) findViewById(R.id.telefone_estabelecimento_detalhe);
-        telefone.setText(estabelecimento.getmTelefoneDoEstabelecimento());
-
-        rua = (TextView) findViewById(R.id.rua_estabelecimento_detalhe);
-        rua.setText(estabelecimento.getmRuaDoEstabelecimento());
-
-        numero = (TextView) findViewById(R.id.numero_estabelecimento_detalhe);
-        numero.setText(String.valueOf(estabelecimento.getmNumeroDoEstabelecimento()));
-
-        bairro = (TextView) findViewById(R.id.bairro_estabelecimento_detalhe);
-        bairro.setText(estabelecimento.getmBairroDoEstabelecimento());
-
-        cidade = (TextView) findViewById(R.id.cidade_estabelecimento_detalhe);
-        cidade.setText(estabelecimento.getmCidadeDoEstabelecimento());
-
-        servicos = (TextView) findViewById(R.id.serviços_estabelecimento_detalhe);
-        servicos.setText(estabelecimento.getmServicos());
-
-        horario = (TextView) findViewById(R.id.horario_estabelecimento_detalhe);
-        horario.setText(estabelecimento.getmHorarioAtendimento());
-
-        nota = (RatingBar) findViewById(R.id.rating_bar_detalhe);
-        nota.setRating(estabelecimento.getmNotaEstabelecimento());
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refresh(estabelecimento.getmId());
     }
 
     @Override
@@ -103,9 +79,45 @@ public class ActivityDetalhe extends AppCompatActivity {
         }
         if (id == MenuItem_EditId) {
             Intent intent = new Intent(ActivityDetalhe.this, ActivityEditEstab.class);
-            startActivity(intent);;
+            int idEstabelecimento = estabelecimento.getmId();
+            intent.putExtra(ActivityDetalhe.ID_ESTABELECIMENTO, idEstabelecimento);
+            startActivity(intent);
         }
         return true;
+    }
+
+    void refresh(int idEstab) {
+        estabelecimento = BancoDeDadosTeste.selectEstabelecimento(idEstab);
+
+        imagem = (ImageView) findViewById(R.id.imagem_estabelecimento_detalhe);
+        imagem.setImageResource(estabelecimento.getmImagemEstabelecimento());
+
+        nome = (TextView) findViewById(R.id.nome_estabelecimento_detalhe);
+        nome.setText(estabelecimento.getmNomeDoEstabelecimento());
+
+        telefone = (TextView) findViewById(R.id.telefone_estabelecimento_detalhe);
+        telefone.setText(estabelecimento.getmTelefoneDoEstabelecimento());
+
+        rua = (TextView) findViewById(R.id.rua_estabelecimento_detalhe);
+        rua.setText(estabelecimento.getmRuaDoEstabelecimento());
+
+        numero = (TextView) findViewById(R.id.numero_estabelecimento_detalhe);
+        numero.setText(String.valueOf(estabelecimento.getmNumeroDoEstabelecimento()));
+
+        bairro = (TextView) findViewById(R.id.bairro_estabelecimento_detalhe);
+        bairro.setText(estabelecimento.getmBairroDoEstabelecimento());
+
+        cidade = (TextView) findViewById(R.id.cidade_estabelecimento_detalhe);
+        cidade.setText(estabelecimento.getmCidadeDoEstabelecimento());
+
+        servicos = (TextView) findViewById(R.id.serviços_estabelecimento_detalhe);
+        servicos.setText(estabelecimento.getmServicos());
+
+        horario = (TextView) findViewById(R.id.horario_estabelecimento_detalhe);
+        horario.setText(estabelecimento.getmHorarioAtendimento());
+
+        nota = (RatingBar) findViewById(R.id.rating_bar_detalhe);
+        nota.setRating(estabelecimento.getmNotaEstabelecimento());
     }
 
     @Override

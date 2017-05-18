@@ -88,4 +88,48 @@ public class Estabelecimento {
     public String getmHorarioAtendimento() {
         return mHorarioAtendimento;
     }
+
+    public void setmNomeDoEstabelecimento(String mNomeDoEstabelecimento) {
+        this.mNomeDoEstabelecimento = mNomeDoEstabelecimento;
+    }
+
+    public void setmRuaDoEstabelecimento(String mRuaDoEstabelecimento) {
+        this.mRuaDoEstabelecimento = mRuaDoEstabelecimento;
+    }
+
+    public void setmNumeroDoEstabelecimento(String mNumeroDoEstabelecimento) {
+        this.mNumeroDoEstabelecimento = mNumeroDoEstabelecimento;
+    }
+
+    public void setmBairroDoEstabelecimento(String mBairroDoEstabelecimento) {
+        this.mBairroDoEstabelecimento = mBairroDoEstabelecimento;
+    }
+
+    public void setmCidadeDoEstabelecimento(String mCidadeDoEstabelecimento) {
+        this.mCidadeDoEstabelecimento = mCidadeDoEstabelecimento;
+    }
+
+    public void setmTelefoneDoEstabelecimento(String mTelefoneDoEstabelecimento) {
+        this.mTelefoneDoEstabelecimento = mTelefoneDoEstabelecimento;
+    }
+
+    public void setmServicos(String mServicos) {
+        this.mServicos = mServicos;
+    }
+
+    public void setmHorarioAtendimento(String mHorarioAtendimento) {
+        this.mHorarioAtendimento = mHorarioAtendimento;
+    }
+
+    public void setmNotaEstabelecimento(float mNotaEstabelecimento) {
+        this.mNotaEstabelecimento = mNotaEstabelecimento;
+    }
+
+    public void setmImagemEstabelecimento(int mImagemEstabelecimento) {
+        this.mImagemEstabelecimento = mImagemEstabelecimento;
+    }
+
+    public void setmImagemEstabelecimentoThumb(int mImagemEstabelecimentoThumb) {
+        this.mImagemEstabelecimentoThumb = mImagemEstabelecimentoThumb;
+    }
 }
