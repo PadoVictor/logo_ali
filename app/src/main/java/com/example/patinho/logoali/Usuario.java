@@ -4,7 +4,8 @@ public class Usuario {
 
     enum Role {
         ADMIN,
-        USER
+        USER,
+        SUPPORT
     }
 
     private int mIdUsuario;

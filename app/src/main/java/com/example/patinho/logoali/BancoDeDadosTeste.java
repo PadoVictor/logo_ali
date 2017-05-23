@@ -37,6 +37,7 @@ class BancoDeDadosTeste {
             new Usuario(8, "Dener", "Desmond", "16497585420", "dede@gmail.com", "acS269", Usuario.Role.ADMIN),
             new Usuario(9, "Rodrigo", "Salles", "98908754577", "rsalles@gmail.com", "975791", Usuario.Role.ADMIN),
             new Usuario(10, "Usuario", "Teste", "00000000000", "u", "t", Usuario.Role.USER),
+            new Usuario(11, "Suporte", "Usuario", "35845695864", "s", "p", Usuario.Role.SUPPORT),
     };
 
     public static ArrayList<Estabelecimento> selectEstabelecimentoByCidade(String cidade) {

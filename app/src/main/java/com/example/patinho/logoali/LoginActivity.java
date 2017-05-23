@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.patinho.logoali.ActivityDetalhe.ID_ESTABELECIMENTO;
 import static com.example.patinho.logoali.BancoDeDadosTeste.AuthenticateUserReturn.USER_ID;
 import static com.example.patinho.logoali.Usuario.Role.ADMIN;
 import static com.example.patinho.logoali.Usuario.Role.USER;
@@ -18,16 +19,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        TextView bCriarConta = (TextView) findViewById(R.id.criar_nova_conta_login_activity);
-
-        bCriarConta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
-                startActivity(intent);
-            }
-        });
 
         Button bLogin = (Button) findViewById(R.id.botao_logar);
         final EditText etEmail = (EditText) findViewById(R.id.edit_text_email);
@@ -51,6 +42,11 @@ public class LoginActivity extends AppCompatActivity {
                         case ADMIN:
                             //Se Role é Admin, ir à tela de Meus Estabelecimentos
                             intent = new Intent(LoginActivity.this, ActivityEstabelecimentos.class);
+                            break;
+                        case SUPPORT:
+                            //Se Role é Support, ir à tela de Criação de Estabelecimetos
+                            intent = new Intent(LoginActivity.this, ActivityEditEstab.class);
+                            intent.putExtra(ID_ESTABELECIMENTO, -1);
                             break;
                     }
                     startActivity(intent);
