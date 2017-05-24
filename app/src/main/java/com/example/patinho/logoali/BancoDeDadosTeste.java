@@ -5,6 +5,7 @@ import java.util.ArrayList;
 class BancoDeDadosTeste {
 
     private static ArrayList<Estabelecimento> estabelecimentos = new ArrayList<>();
+    private static ArrayList<Fidelidade> fidelidades = new ArrayList<>();
 
     private static Usuario[] usuarios = new Usuario[]{
             new Usuario(0, "João", "Paulo", "25864592514", "jaopaulo@gmail.com", "minha15senha", Usuario.Role.ADMIN),
@@ -153,6 +154,28 @@ class BancoDeDadosTeste {
                 in.getmImagemEstabelecimentoThumb());
         estabelecimentos.add(newEst);
         return newEst;
+    }
+
+    public void addFidelidade(int idUsuario, int idEstabelecimento) {
+        Estabelecimento estabelecimento = selectEstabelecimento(idEstabelecimento);
+        if (LoginHandler.getUsuario().getmIdUsuario() != estabelecimento.getmIdAdministrador()) {
+            return;
+        }
+        int count = countFidelidade(idUsuario, idEstabelecimento);
+        if (count == 0) {
+            fidelidades.add(new Fidelidade(idUsuario,idEstabelecimento));
+        } else {
+            addFidelidade(idUsuario, idEstabelecimento);
+        }
+    }
+
+    public int countFidelidade(int idUsuario, int idEstabelecimento) {
+        for (Fidelidade f : fidelidades) {
+            if (f.getmIdUsuario() == idUsuario && f.getmIdEstabelecimento() == idEstabelecimento) {
+                return f.getmContagem();
+            }
+        }
+        return 0;
     }
 
     private static int getNextID() {
