@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -11,7 +13,9 @@ import static com.example.patinho.logoali.ActivityDetalhe.ID_ESTABELECIMENTO;
 
 public class ActivityEditEstab extends AppCompatActivity {
 
-    private Estabelecimento estabelecimento;
+    boolean createMode = false;
+
+    protected Estabelecimento estabelecimento;
 
     ImageView imagem;
 
@@ -25,7 +29,7 @@ public class ActivityEditEstab extends AppCompatActivity {
         final Intent intent = getIntent();
         estabelecimento = BancoDeDadosTeste.selectEstabelecimento(intent.getIntExtra(ID_ESTABELECIMENTO, -1));
 
-        if (estabelecimento != null) {
+        if (estabelecimento != null && !createMode) {
             populateViews();
         }
     }
@@ -62,6 +66,16 @@ public class ActivityEditEstab extends AppCompatActivity {
     @Override
     protected void onPause() {
 
+        setValuesFromText();
+
+        if (!createMode) {
+            BancoDeDadosTeste.updateEstabelecimento(estabelecimento);
+        }
+
+        super.onPause();
+    }
+
+    void setValuesFromText(){
         estabelecimento.setmNomeDoEstabelecimento(nome.getText().toString());
         estabelecimento.setmTelefoneDoEstabelecimento(telefone.getText().toString());
         estabelecimento.setmRuaDoEstabelecimento(rua.getText().toString());
@@ -70,8 +84,20 @@ public class ActivityEditEstab extends AppCompatActivity {
         estabelecimento.setmCidadeDoEstabelecimento(cidade.getText().toString());
         estabelecimento.setmServicos(servicos.getText().toString());
         estabelecimento.setmHorarioAtendimento(horario.getText().toString());
+    }
 
-        BancoDeDadosTeste.updateEstabelecimento(estabelecimento);
-        super.onPause();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_edit_stab, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.edit_stab_salvar) {
+            this.finish();
+        }
+        return true;
     }
 }

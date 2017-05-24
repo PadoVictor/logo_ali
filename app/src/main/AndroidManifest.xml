@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".ActivityEstabelecimentos"></activity>
         <activity android:name=".ActivityEditEstab"></activity>
+        <activity android:name=".ActivityCreateEstab"></activity>
         <activity android:name=".QRReader"></activity>
 
     </application>

@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        BancoDeDadosTeste.inicializarBancoDeDados();
         setContentView(R.layout.activity_login);
 
         Button bLogin = (Button) findViewById(R.id.botao_logar);

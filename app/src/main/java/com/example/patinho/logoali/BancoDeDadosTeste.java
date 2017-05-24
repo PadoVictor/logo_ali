@@ -4,26 +4,7 @@ import java.util.ArrayList;
 
 class BancoDeDadosTeste {
 
-    private static Estabelecimento[] estabelecimentos = new Estabelecimento[]{
-            new Estabelecimento(0, "Corte Rápido", "Rua México", "523", "Vista Verde", "São José dos Campos", "38655545", "Corte Masculino R$20,00\nCorte Feminino R$35,00",
-                    "9 horas - 22 horas", 0, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb),
-            new Estabelecimento(1, "Corte Bom", "Rua Tubarão", "88", "Aquários", "São José dos Campos", "39900258", "Aplicação de Tinta R$50,00\nLavagem R$30,00",
-                    "9 horas - 21 horas", 1, 4.5f, R.drawable.barbearia2, R.drawable.barbearia2_thumb),
-            new Estabelecimento(2, "Corte Lindo", "Rua Parafuso", "994", "Jardim das industrias", "São José dos Campos", "33590663", "Luzes com Matização R$150,00\nTratamento Capilar a Lazer R$500,00\nLuzes Papel com Matização R$250,00",
-                    "7 horas - 22 horas", 2, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb),
-            new Estabelecimento(3, "Corte Prático", "Rua dos Macacos", "110", "Vila Madrid", "Caçapava", "33255222", "Alongamento de Cabelos R$385,00\nRetoque de Raiz R$100,00\nDesintoxicação de Cabelos R$380,00\nCorte Feminino R$60,00\nBordados Laces R$300,00",
-                    "8 horas - 23 horas", 3, 4f, R.drawable.barbearia2, R.drawable.barbearia2_thumb),
-            new Estabelecimento(4, "Corte Limpo", "Avenida dos Limões", "2056", "Vale das Frutas", "Caçapava", "35459900", "Hidratação R$50,00",
-                    "6 horas - 18 horas", 4, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb),
-            new Estabelecimento(5, "Cabelo Bom", "Avenida São José", "415", "Marlene Miranda", "Pindamonhangaba", "42218988", "Corte Feminino R$75,00\nCorte Maculino R$35,00\nEscova Modeladora R$80,00",
-                    "9 horas - 20 horas", 5, 4.5f, R.drawable.barbearia2, R.drawable.barbearia2_thumb),
-            new Estabelecimento(6, "Cabelo Pronto", "Praça das bolhas", "80", "Centro", "Pindamonhangaba", "33212122", "Luzes Retoque R$150,00\nEscova Progressiva R$250,00\nCorte Masculino R$45,00",
-                    "8 horas - 20 horas", 6, 3f, R.drawable.barbearia1, R.drawable.barbearia1_thumb),
-            new Estabelecimento(7, "Cabelo Colorido", "Rua da Petunia", "784", "Jardim das Flores", "Pindamonhangaba", "34445496", "Regeneração Capilar R$80,00\nReconstrução Capilar R$200,00",
-                    "7 horas - 21 horas", 7, 4.74f, R.drawable.barbearia2, R.drawable.barbearia2_thumb),
-            new Estabelecimento(8, "Cabelo no Chão", "Rua do sogro", "69", "Cunha", "Jacareí", "32246996", "Escova R$20,00\nCorte Masculino Desenhado R$30,00\nColoração R$120,00",
-                    "6 horas - 19 horas", 8, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb),
-    };
+    private static ArrayList<Estabelecimento> estabelecimentos = new ArrayList<>();
 
     private static Usuario[] usuarios = new Usuario[]{
             new Usuario(0, "João", "Paulo", "25864592514", "jaopaulo@gmail.com", "minha15senha", Usuario.Role.ADMIN),
@@ -39,6 +20,18 @@ class BancoDeDadosTeste {
             new Usuario(10, "Usuario", "Teste", "00000000000", "u", "t", Usuario.Role.USER),
             new Usuario(11, "Suporte", "Usuario", "35845695864", "s", "p", Usuario.Role.SUPPORT),
     };
+
+    static void inicializarBancoDeDados() {
+        estabelecimentos.add(new Estabelecimento(0, "Corte Rápido", "Rua México", "523", "Vista Verde", "São José dos Campos", "38655545", "Corte Masculino R$20,00\nCorte Feminino R$35,00", "9 horas - 22 horas", 0, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb));
+        estabelecimentos.add(new Estabelecimento(1, "Corte Bom", "Rua Tubarão", "88", "Aquários", "São José dos Campos", "39900258", "Aplicação de Tinta R$50,00\nLavagem R$30,00", "9 horas - 21 horas", 1, 4.5f, R.drawable.barbearia2, R.drawable.barbearia2_thumb));
+        estabelecimentos.add(new Estabelecimento(2, "Corte Lindo", "Rua Parafuso", "994", "Jardim das industrias", "São José dos Campos", "33590663", "Luzes com Matização R$150,00\nTratamento Capilar a Lazer R$500,00\nLuzes Papel com Matização R$250,00", "7 horas - 22 horas", 2, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb));
+        estabelecimentos.add(new Estabelecimento(3, "Corte Prático", "Rua dos Macacos", "110", "Vila Madrid", "Caçapava", "33255222", "Alongamento de Cabelos R$385,00\nRetoque de Raiz R$100,00\nDesintoxicação de Cabelos R$380,00\nCorte Feminino R$60,00\nBordados Laces R$300,00", "8 horas - 23 horas", 3, 4f, R.drawable.barbearia2, R.drawable.barbearia2_thumb));
+        estabelecimentos.add(new Estabelecimento(4, "Corte Limpo", "Avenida dos Limões", "2056", "Vale das Frutas", "Caçapava", "35459900", "Hidratação R$50,00", "6 horas - 18 horas", 4, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb));
+        estabelecimentos.add(new Estabelecimento(5, "Cabelo Bom", "Avenida São José", "415", "Marlene Miranda", "Pindamonhangaba", "42218988", "Corte Feminino R$75,00\nCorte Maculino R$35,00\nEscova Modeladora R$80,00", "9 horas - 20 horas", 5, 4.5f, R.drawable.barbearia2, R.drawable.barbearia2_thumb));
+        estabelecimentos.add(new Estabelecimento(6, "Cabelo Pronto", "Praça das bolhas", "80", "Centro", "Pindamonhangaba", "33212122", "Luzes Retoque R$150,00\nEscova Progressiva R$250,00\nCorte Masculino R$45,00", "8 horas - 20 horas", 6, 3f, R.drawable.barbearia1, R.drawable.barbearia1_thumb));
+        estabelecimentos.add(new Estabelecimento(7, "Cabelo Colorido", "Rua da Petunia", "784", "Jardim das Flores", "Pindamonhangaba", "34445496", "Regeneração Capilar R$80,00\nReconstrução Capilar R$200,00", "7 horas - 21 horas", 7, 4.74f, R.drawable.barbearia2, R.drawable.barbearia2_thumb));
+        estabelecimentos.add(new Estabelecimento(8, "Cabelo no Chão", "Rua do sogro", "69", "Cunha", "Jacareí", "32246996", "Escova R$20,00\nCorte Masculino Desenhado R$30,00\nColoração R$120,00", "6 horas - 19 horas", 8, 5f, R.drawable.barbearia1, R.drawable.barbearia1_thumb));
+    }
 
     public static ArrayList<Estabelecimento> selectEstabelecimentoByCidade(String cidade) {
         ArrayList<Estabelecimento> arrayListEstabelecimento = new ArrayList<>();
@@ -138,5 +131,37 @@ class BancoDeDadosTeste {
             return estabelecimento;
         }
         return null;
+    }
+
+    public static Estabelecimento createEstabelecimento(Estabelecimento in) {
+//        if (!LoginHandler.getUsuario().getmRole().equals(Usuario.Role.SUPPORT)) {
+//            return null;
+//        }
+        assert in != null;
+        Estabelecimento newEst = new Estabelecimento(getNextID(),
+                in.getmNomeDoEstabelecimento(),
+                in.getmRuaDoEstabelecimento(),
+                in.getmNumeroDoEstabelecimento(),
+                in.getmBairroDoEstabelecimento(),
+                in.getmCidadeDoEstabelecimento(),
+                in.getmTelefoneDoEstabelecimento(),
+                in.getmServicos(),
+                in.getmHorarioAtendimento(),
+                in.getmIdAdministrador(),
+                in.getmNotaEstabelecimento(),
+                in.getmImagemEstabelecimento(),
+                in.getmImagemEstabelecimentoThumb());
+        estabelecimentos.add(newEst);
+        return newEst;
+    }
+
+    private static int getNextID() {
+        int ret = -1;
+        for (Estabelecimento e : estabelecimentos) {
+            if (e.getmId() > ret) {
+                ret = e.getmId();
+            }
+        }
+        return ++ret;
     }
 }
