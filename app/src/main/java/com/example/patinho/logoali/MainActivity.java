@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         if (ADMIN == LoginHandler.getUsuario().getmRole()) {
             MenuItem edit_item = menu.add(0, MenuItem_MeusEstabelecimentos, 0, "Meus Estabelecimentos");
             edit_item.setIcon(R.drawable.ic_meus_estabelecimentos_24dp);
@@ -63,10 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == MenuItem_MeusEstabelecimentos) {
-            Intent intent = new Intent(MainActivity.this, ActivityEstabelecimentos.class);
-            startActivity(intent);
+        switch (item.getItemId()) {
+            case MenuItem_MeusEstabelecimentos:
+                Intent intent = new Intent(MainActivity.this, ActivityEstabelecimentos.class);
+                startActivity(intent);
+                break;
         }
         return true;
     }

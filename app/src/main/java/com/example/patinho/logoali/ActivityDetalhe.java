@@ -22,6 +22,8 @@ public class ActivityDetalhe extends AppCompatActivity {
 
     private final int MenuItem_EditId = 1;
 
+    private final int MenuItem_QRCamera = 2;
+
     Estabelecimento estabelecimento;
 
     TextView nome, telefone, rua, numero, bairro, cidade, servicos, horario;
@@ -51,8 +53,16 @@ public class ActivityDetalhe extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_details, menu);
+
+        if (estabelecimento.getmIdAdministrador() != LoginHandler.getUsuario().getmIdUsuario()) {
+            getMenuInflater().inflate(R.menu.menu_details, menu);
+        }
+
         if (estabelecimento.getmIdAdministrador() == LoginHandler.getUsuario().getmIdUsuario()) {
+            MenuItem edit_item_qr = menu.add(0, MenuItem_QRCamera, 0, "Câmera QR");
+            edit_item_qr.setIcon(R.drawable.ic_qr_camera_24dp);
+            edit_item_qr.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
             MenuItem edit_item = menu.add(0, MenuItem_EditId, 0, R.string.edit);
             edit_item.setIcon(R.drawable.ic_mode_edit_white_24dp);
             edit_item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM);
@@ -72,16 +82,21 @@ public class ActivityDetalhe extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.adicionar_alarme) {
-            Toast.makeText(ActivityDetalhe.this, "Defina um alarme para visitar estabelecimento", Toast.LENGTH_LONG).show();
-            showDialog(DIALOG_ID);
-        }
-        if (id == MenuItem_EditId) {
-            Intent intent = new Intent(ActivityDetalhe.this, ActivityEditEstab.class);
-            int idEstabelecimento = estabelecimento.getmId();
-            intent.putExtra(ActivityDetalhe.ID_ESTABELECIMENTO, idEstabelecimento);
-            startActivity(intent);
+        switch (item.getItemId()) {
+            case R.id.adicionar_alarme:
+                Toast.makeText(ActivityDetalhe.this, "Defina um alarme para visitar estabelecimento", Toast.LENGTH_LONG).show();
+                showDialog(DIALOG_ID);
+                break;
+            case MenuItem_EditId:
+                Intent intent = new Intent(ActivityDetalhe.this, ActivityEditEstab.class);
+                int idEstabelecimento = estabelecimento.getmId();
+                intent.putExtra(ActivityDetalhe.ID_ESTABELECIMENTO, idEstabelecimento);
+                startActivity(intent);
+                break;
+            case MenuItem_QRCamera:
+                Intent intent1 = new Intent(ActivityDetalhe.this, QRReader.class);
+                startActivity(intent1);
+                break;
         }
         return true;
     }
@@ -121,8 +136,8 @@ public class ActivityDetalhe extends AppCompatActivity {
     }
 
     @Override
-    protected Dialog onCreateDialog(int id){
-        if(id == DIALOG_ID)
+    protected Dialog onCreateDialog(int id) {
+        if (id == DIALOG_ID)
             return new TimePickerDialog(ActivityDetalhe.this, kTimePickerListener, hour_x, minute_x, true);
         return null;
     }
