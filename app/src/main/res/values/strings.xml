@@ -17,5 +17,7 @@
     <string name="criar_nova_conta_login_activity">Criar nova conta</string>
     <string name="titulo_activity_estabelecimento">Meus Estabelecimentos</string>
     <string name="edit">Editar</string>
+    <string name="sim">SIM</string>
+    <string name="nao">NÃO</string>
 
 </resources>

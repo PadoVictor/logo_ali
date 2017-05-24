@@ -1,5 +1,6 @@
 package com.example.patinho.logoali;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -35,12 +36,24 @@ public class QRReader extends AppCompatActivity implements ZXingScannerView.Resu
     @Override
     public void handleResult(Result rawResult) {
 
+        String stringQR = rawResult.getText();
+        String nomeCliente = stringQR.split(":")[1];
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Scan Result");
-        builder.setMessage(rawResult.getText());
+        builder.setTitle("PONTOS FIDELIDADE");
+        builder.setMessage("Gostaria de adicionar 1 ponto de fidelidade para " + nomeCliente + "?");
+        builder.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id){
+                QRReader.this.finish();
+                //Todo Após criarmos a tabela de fidelidade, configurar a programação de cada cliente.
+            }
+        });
+        builder.setNegativeButton(R.string.nao, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id){
+                QRReader.this.finish();
+            }
+        });
         AlertDialog alert1 = builder.create();
         alert1.show();
-        this.finish();
     }
 }
 
