@@ -156,7 +156,7 @@ class BancoDeDadosTeste {
         return newEst;
     }
 
-    public void addFidelidade(int idUsuario, int idEstabelecimento) {
+    public static void addFidelidade(int idUsuario, int idEstabelecimento) {
         Estabelecimento estabelecimento = selectEstabelecimento(idEstabelecimento);
         if (LoginHandler.getUsuario().getmIdUsuario() != estabelecimento.getmIdAdministrador()) {
             return;
@@ -165,17 +165,26 @@ class BancoDeDadosTeste {
         if (count == 0) {
             fidelidades.add(new Fidelidade(idUsuario,idEstabelecimento));
         } else {
-            addFidelidade(idUsuario, idEstabelecimento);
+            selectFidelidade(idUsuario,idEstabelecimento).addContagem();
         }
     }
 
-    public int countFidelidade(int idUsuario, int idEstabelecimento) {
+    public static int countFidelidade(int idUsuario, int idEstabelecimento) {
         for (Fidelidade f : fidelidades) {
             if (f.getmIdUsuario() == idUsuario && f.getmIdEstabelecimento() == idEstabelecimento) {
                 return f.getmContagem();
             }
         }
         return 0;
+    }
+
+    public static Fidelidade selectFidelidade(int idUsuario, int idEstabelecimento) {
+        for (Fidelidade f : fidelidades) {
+            if (f.getmIdUsuario() == idUsuario && f.getmIdEstabelecimento() == idEstabelecimento) {
+                return f;
+            }
+        }
+        return null;
     }
 
     private static int getNextID() {

@@ -94,9 +94,9 @@ public class ActivityDetalhe extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case MenuItem_QRCamera:
-                String idEstabelecimentoQR = "ID_Estabelecimento:" + estabelecimento.getmId();
+                int idEstabelecimentoQR = Integer.valueOf(estabelecimento.getmId());
                 Intent intent1 = new Intent(ActivityDetalhe.this, QRReader.class);
-                intent1.putExtra("idEstabelecimentoQR", idEstabelecimentoQR);
+                intent1.putExtra("idEstabelecimento", idEstabelecimentoQR);
                 startActivity(intent1);
                 break;
         }
