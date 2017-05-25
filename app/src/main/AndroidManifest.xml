@@ -18,7 +18,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,10 +31,14 @@
         <activity android:name=".ActivityDetalhe">
             <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
         </activity>
-        <activity android:name=".ActivityEstabelecimentos" />
-        <activity android:name=".ActivityEditEstab" />
-        <activity android:name=".QRReader" />
-        <activity android:name=".QRWriter"></activity>
+        <activity android:name=".ActivityEstabelecimentos"/>
+        <activity android:name=".ActivityEditEstab"/>
+        <activity android:name=".ActivityCreateEstab"/>
+        <activity android:name=".QRReader"/>
+        <activity android:name=".QRWriter"/>
     </application>
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
 </manifest>
