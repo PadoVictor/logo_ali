@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "357091429498",
-    "project_id": "firebase-logoali"
+    "project_number": "93993656916",
+    "project_id": "logoali-151217"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:357091429498:android:d10d2e6aa5466a48",
+        "mobilesdk_app_id": "1:93993656916:android:d10d2e6aa5466a48",
         "android_client_info": {
           "package_name": "com.example.patinho.logoali"
         }
       },
       "oauth_client": [
         {
-          "client_id": "357091429498-2nb86tutj0eqpjm0rqm55g1fut8cl1lr.apps.googleusercontent.com",
+          "client_id": "93993656916-q71pk2tg7edmmmqfslc1qfllr0ebk5bi.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.patinho.logoali",
-            "certificate_hash": "5D1F3DCE4B976C8ED22DCEA274CF560A40D00C16"
+            "certificate_hash": "919abebe707e6e0e559838ab68174589941def91"
           }
         },
         {
-          "client_id": "357091429498-j1kekti1actfbb5kjgoavuph8icm22pp.apps.googleusercontent.com",
+          "client_id": "93993656916-dvt28rldpsks9jimubv2bf9j5ref14ir.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAx-FLtjwX4cXJdVf3A3Svsq-njiQqcXP4"
+          "current_key": "AIzaSyCCLVL7FMUsrCdITK18Yj25XW8hMxL3q0g"
         }
       ],
       "services": {

@@ -1,33 +1,34 @@
 package com.example.patinho.logoali;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-        import android.app.ProgressDialog;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.annotation.NonNull;
-        import android.support.v7.app.AppCompatActivity;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.LinearLayout;
-        import android.widget.TextView;
-
-        import com.google.android.gms.auth.api.Auth;
-        import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-        import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-        import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-        import com.google.android.gms.common.ConnectionResult;
-        import com.google.android.gms.common.SignInButton;
-        import com.google.android.gms.common.api.GoogleApiClient;
-        import com.google.android.gms.common.api.OptionalPendingResult;
-        import com.google.android.gms.common.api.ResultCallback;
-        import com.google.android.gms.common.api.Status;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 
 public class GPlusActivity extends AppCompatActivity implements
         View.OnClickListener,
         GoogleApiClient.OnConnectionFailedListener {
 
-    private static final String TAG = GPlusActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 007;
 
     private GoogleApiClient mGoogleApiClient;
@@ -106,12 +107,19 @@ public class GPlusActivity extends AppCompatActivity implements
             Log.e(TAG, "display name: " + acct.getDisplayName());
 
             String personName = acct.getDisplayName();
+            String personPhotoUrl = acct.getPhotoUrl().toString();
             String email = acct.getEmail();
 
-            Log.e(TAG, "Name: " + personName + ", email: " + email);
+            Log.e(TAG, "Name: " + personName + ", email: " + email
+                    + ", Image: " + personPhotoUrl);
 
             txtName.setText(personName);
             txtEmail.setText(email);
+            Glide.with(getApplicationContext()).load(personPhotoUrl)
+                    .thumbnail(0.5f)
+                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(imgProfilePic);
 
             updateUI(true);
         } else {

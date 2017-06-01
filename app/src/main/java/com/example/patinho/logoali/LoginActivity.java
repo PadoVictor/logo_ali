@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                             break;
                         case SUPPORT:
                             //Se Role é Support, ir à tela de Criação de Estabelecimetos
-                            intent = new Intent(LoginActivity.this, ActivityEditEstab.class);
+                            intent = new Intent(LoginActivity.this, ActivityCreateEstab.class);
                             intent.putExtra(ID_ESTABELECIMENTO, -1);
                             break;
                     }

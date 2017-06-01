@@ -18,7 +18,7 @@ public class SplashDevMedia extends Activity {
 
             @Override
             public void run() {
-                Intent i = new Intent(SplashDevMedia.this, LoginActivity.class);
+                Intent i = new Intent(SplashDevMedia.this, GPlusActivity.class);
                 startActivity(i);
                 finish();
             }

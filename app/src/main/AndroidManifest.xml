@@ -15,30 +15,37 @@
         <!-- Splash screen -->
         <activity
             android:name=".GPlusActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".SplashDevMedia">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/search_activity_label" />
+
         <activity
             android:name=".LoginActivity"
             android:label="Login" />
+
         <activity android:name=".CadastroActivity" />
+
         <activity android:name=".ActivityDetalhe">
             <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
         </activity>
-        <activity android:name=".ActivityEstabelecimentos"/>
-        <activity android:name=".ActivityEditEstab"/>
-        <activity android:name=".ActivityCreateEstab"/>
-        <activity android:name=".QRReader"/>
-        <activity android:name=".QRWriter"/>
+
+        <activity android:name=".ActivityEstabelecimentos" />
+        <activity android:name=".ActivityEditEstab" />
+        <activity android:name=".ActivityCreateEstab" />
+        <activity android:name=".QRReader" />
+        <activity android:name=".QRWriter" />
     </application>
 
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>
