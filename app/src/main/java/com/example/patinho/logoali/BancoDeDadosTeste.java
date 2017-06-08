@@ -111,6 +111,9 @@ class BancoDeDadosTeste {
         private int err;
         private Usuario usuario;
 
+        /**
+         * 1 = sucesso, -1 = senha incorreta, -2 = usuário inexistente
+         */
         public AuthenticateUserReturn(int err, Usuario usuario) {
             this.err = err;
             this.usuario = usuario;
